@@ -54,3 +54,21 @@ This will help us to communicate our LWC via Lightning Message Service API, with
 - Then we return the url of the boat picture in the get method for image background
 
 - Finally, we complete the html adding the values to show from the boat, name, price etc.
+
+## DAY 3, Third Commit
+
+## Challange 6 Customize the component boatMap
+
+- For this challenge we need to update the boatMap lwc that we installed in our org previously
+
+- Update the code according to the trailhead instructions, it is straightforward (We need to update some arrays, use lightning/uiRecordApi to get record value, and handle the boatid ussing messageServices)
+
+- Important : Import all the necesary messageServices {APPLICATION_SCOPE, subscribe, MessageContext } 
+
+## Challenge 7 Build the component boatsNearMe and display boats near you
+
+Here we are going to build the boatsNearMe component, so we will be able to get a map data with boats.
+
+- First create the boatsNearMe lwc and copy the template from the challenge, doing this we assure the correct method and variables names.
+
+- This one was a little bit harder, i struggled with the correct location of every element, you must be very carefull where you put every single line, also be carefull with  constants,  and fo not forget to parse de JSON response.
