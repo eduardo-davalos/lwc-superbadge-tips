@@ -57,7 +57,7 @@ This will help us to communicate our LWC via Lightning Message Service API, with
 
 ## DAY 3, Third Commit
 
-## Challange 6 Customize the component boatMap
+## Challenge 6 Customize the component boatMap
 
 - For this challenge we need to update the boatMap lwc that we installed in our org previously
 
@@ -72,3 +72,20 @@ Here we are going to build the boatsNearMe component, so we will be able to get 
 - First create the boatsNearMe lwc and copy the template from the challenge, doing this we assure the correct method and variables names.
 
 - This one was a little bit harder, i struggled with the correct location of every element, you must be very carefull where you put every single line, also be carefull with  constants,  and fo not forget to parse de JSON response.
+
+## DAY 4, Fourth commit
+
+## Challenge 8 Build the component boatSearchResults
+
+We started with the first tab "Galery"
+
+- First we created the boatSearchResults component, using the template from the lwc.
+
+- We created the functions to recieve the selectedBoat, to put the message with the selected boat.
+
+- Another important aspect is the getting all the boat type id from the parent, we get it with a public function
+then the public function, assign the id to a wired variabel, wich causes an update to apex method, and  the wired apex get all the boats from that specific type
+
+- Then we iterate trough all the boats to show them on screen, y was able to iterate and show the boat name, but i am getting an error when creating all the boats tiles, i need to fix it
+
+

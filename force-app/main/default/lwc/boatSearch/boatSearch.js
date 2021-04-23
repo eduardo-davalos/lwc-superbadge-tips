@@ -1,6 +1,5 @@
 import { LightningElement } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-import getBoats from '@salesforce/apex/BoatDataService.getBoats';
 
 
 export default class BoatSearch extends NavigationMixin(LightningElement) {
@@ -22,15 +21,7 @@ export default class BoatSearch extends NavigationMixin(LightningElement) {
     // This custom event comes from the form
     searchBoats(event) { 
         let boatTypeId = event.detail.boatTypeId;
-
-        getBoats({boatTypeId:this.boatTypeId})
-            .then(result => {
-                console.log(result);
-                //this.contacts = result;
-            })
-            .catch(error => {
-                this.error = error;
-            });
+        this.template.querySelector('c-boat-search-results').searchBoats(boatTypeId);
     }
     
     createNewBoat() { 
