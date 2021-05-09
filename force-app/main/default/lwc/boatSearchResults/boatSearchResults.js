@@ -3,63 +3,73 @@ import { getRecord, updateRecord } from 'lightning/uiRecordApi';
 import { refreshApex } from '@salesforce/apex';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getBoats from '@salesforce/apex/BoatDataService.getBoats';
+import updateBoatList from '@salesforce/apex/BoatDataService.updateBoatList';
 
 import { publish, MessageContext } from 'lightning/messageService';
-import BOAT_MESSAGE_CHANNEL from '@salesforce/messageChannel/BoatMessageChannel__c';
-
-
+import BoatMC from '@salesforce/messageChannel/BoatMessageChannel__c';
+import Length__c from '@salesforce/schema/Boat__c.Length__c';
+import Price__c from '@salesforce/schema/Boat__c.Price__c';
 
 const SUCCESS_TITLE = 'Success';
 const MESSAGE_SHIP_IT     = 'Ship it!';
 const SUCCESS_VARIANT     = 'success';
 const ERROR_TITLE   = 'Error';
 const ERROR_VARIANT = 'error';
+
 export default class BoatSearchResults extends LightningElement {
   selectedBoatId;
-  columns = [];
+  columns = [
+    {label: 'Name', fieldName: 'Name', type: 'text', editable:true},
+    {label:'Length', fieldName: 'Length__c', type: 'number' , editable:true},
+    {label:'Price', fieldName: 'Price__c', type:'currency', editable:true},
+    {label:'Description', fieldName: 'Description__c', type:'text', editable:true}
+];
+
   boatTypeId = '';
   @track boats;
   isLoading = false;
   error;
   
   // wired message context
-  messageContext;
+  @wire(MessageContext) messageContext;
 
   // wired getBoats method 
   @wire (getBoats, {boatTypeId:'$boatTypeId'})
-  wiredBoats({error, data}) { 
+  wiredBoats({error, data}) {
     if(data)
       {
-          this.isLoading = true;
           this.boats = data;
-          console.log('data'+data);
-          console.log('boatsdata'+this.boats);
       }else if(error){
-          console.log('errot');
-        this.isLoading = false;
       }
+      this.notifyLoading(false);
   }
     
   // public function that updates the existing boatTypeId property
   // uses notifyLoading
   @api
   searchBoats(publicBoatTypeId) {
+    this.notifyLoading(true);
     this.boatTypeId = publicBoatTypeId;
+    this.notifyLoading(false);
    }
   
   // this public function must refresh the boats asynchronously
   // uses notifyLoading
-  refresh() { }
+  async refresh() {
+    this.notifyLoading(true);
+    refreshApex(this.boats); 
+    this.notifyLoading(false);
+  }
   
   // this function must update selectedBoatId and call sendMessageService
   updateSelectedTile(event) { 
         this.selectedBoatId = event.detail.boatId;
-        sendMessageService(boatId);
+        this.sendMessageService(this.selectedBoatId);
   }
   
   // Publishes the selected boat Id on the BoatMC.
   sendMessageService(boatId) { 
-      publish(this.messageContext, BOAT_MESSAGE_CHANNEL,  {recordId:boatId});
+      publish(this.messageContext, BoatMC,  {recordId:boatId});
   }
   
   // The handleSave method must save the changes in the Boat Editor
@@ -69,13 +79,37 @@ export default class BoatSearchResults extends LightningElement {
   // clear lightning-datatable draft values
   handleSave(event) {
     // notify loading
+    this.notifyLoading(true);
     const updatedFields = event.detail.draftValues;
     // Update the records via Apex
     updateBoatList({data: updatedFields})
-    .then(() => {})
-    .catch(error => {})
+    .then((resultado) => {
+      const toastEvent = new ShowToastEvent({
+        title: SUCCESS_TITLE,
+        message: MESSAGE_SHIP_IT,
+        variant: SUCCESS_VARIANT
+      });
+      this.dispatchEvent(toastEvent);
+      this.refresh();
+    })
+    .catch(error => {
+      const toastEvent = new ShowToastEvent({
+        title: ERROR_TITLE,
+        variant: ERROR_VARIANT
+      });
+      this.dispatchEvent(toastEvent);
+    })
     .finally(() => {});
   }
+
   // Check the current value of isLoading before dispatching the doneloading or loading custom event
-  notifyLoading(isLoading) { }
+  notifyLoading(isLoading) { 
+    this.isLoading = isLoading;
+    if(this.isLoading){
+      this.dispatchEvent(new CustomEvent('loading'));
+    }
+    else{
+      this.dispatchEvent(new CustomEvent('doneloading'));
+    }
+  }
 }

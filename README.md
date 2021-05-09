@@ -88,4 +88,18 @@ then the public function, assign the id to a wired variabel, wich causes an upda
 
 - Then we iterate trough all the boats to show them on screen, y was able to iterate and show the boat name, but i am getting an error when creating all the boats tiles, i need to fix it
 
+## DAY 5, Fifth commit
+## Challenge 8 part 2
+ Ok the problem was very simple to solve, in boarTile.js, backgroundStyle method, the i used the variable boat, without this.
+
+ - Today we will start working on the Boat Editor
+
+ - First we create a datatable using the boats records (NOTES: Check thay the org currency is the same as the trailhead, in my case USD, also when creating the datatable use, fieldName: 'Length__c', instead of the api field)
+
+ - Then we updated the loading event functionallity
+
+ - Do not forget to add async to the update part
+
+ - FInally we added the boats near me component to the html
+
 

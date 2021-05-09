@@ -35,8 +35,8 @@ export default class BoatsNearMe extends LightningElement {
             variant: ERROR_VARIANT
         });
         this.dispatchEvent(evt);
-        this.isLoading = false;
       }
+      this.isLoading = false;
   }
   
   // Controls the isRendered property
