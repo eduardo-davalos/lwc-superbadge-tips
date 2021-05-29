@@ -102,4 +102,19 @@ then the public function, assign the id to a wired variabel, wich causes an upda
 
  - FInally we added the boats near me component to the html
 
+## Day 6, Sixth commit
+## Challenge 9 Boat search component
+
+Previously we have worked on this componet , so almost everything is ready for this challenge,
+I am getting an error about the spinner, so we need to fix this in order to complete the challenge.
+
+-I solved an issue in boatMap js, updateMap method variables were wrong.
+-And for the searchComponent, i only missed to add variant="brand" into the spinner tag
+
+## Challenge 10 fiveStarRating
+
+-The fiveStarRating is already creaded, so first we need to get it on our visual studio
+-Afer that we just need to follow the steps described in the superbadge, it is pretty straightforward.
+
+
 
