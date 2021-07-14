@@ -125,4 +125,11 @@ I am getting an error about the spinner, so we need to fix this in order to comp
 -Finish with the submit method and success method
 -Do no forget to create a new event on the success method
 
+## Challenge 12 boatReviews
+
+-We are going to create the boatReviews component to visualize all the boats reviews
+-Here we are going to use NavigationMixin so we could travel between diferent salesforce pages do not forget to extend the class
+-We are going to add a little spinner
+-We are also making an iteration for every review, so we can see each review created
+-For each review we are going to show a picture from the creator, and its data, an also the review, and the star component
 
