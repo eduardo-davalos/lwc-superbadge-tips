@@ -116,5 +116,13 @@ I am getting an error about the spinner, so we need to fix this in order to comp
 -The fiveStarRating is already creaded, so first we need to get it on our visual studio
 -Afer that we just need to follow the steps described in the superbadge, it is pretty straightforward.
 
+## Challenge 11 boatAddReviewForm
+
+-Now it is time to create boatAddReviewForm component, as always we will initiate using the template in the superbadge
+-Begin creating lightning-record-edit-form with its respective imports
+-Add the required fields with the custom labels
+-Add the stars component to the form, and use the event to obtain the value
+-Finish with the submit method and success method
+-Do no forget to create a new event on the success method
 
 
