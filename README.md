@@ -133,3 +133,16 @@ I am getting an error about the spinner, so we need to fix this in order to comp
 -We are also making an iteration for every review, so we can see each review created
 -For each review we are going to show a picture from the creator, and its data, an also the review, and the star component
 
+## Challege 13 boatDetailTabs
+
+-We are going to create the boat details container, were we are going to add all the details and reviews
+-Start making the component available to use on lightning pages
+-Then copy the given code on the trailhead and create the component
+-Import all the necesary labels, and start adding them to the html
+-Initialize the variables create the imports
+-Get data for the wired variable, using uiRecordApi and using the boat event to recieve the selected id
+-Build a tabset on the html
+-Create the details lightning card, with name icon details and button
+-Extend navigation mixin to the class, and link the button to the deetail page
+-Add the lightning-record-view-form to see extra fields
+-Relate the reviews components to the other tabs.

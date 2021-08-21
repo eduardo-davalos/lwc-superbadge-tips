@@ -36,4 +36,3 @@ export default class BoatSearch extends NavigationMixin(LightningElement) {
         });
     }
   }
-  
