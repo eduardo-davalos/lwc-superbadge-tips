@@ -108,41 +108,41 @@ then the public function, assign the id to a wired variabel, wich causes an upda
 Previously we have worked on this componet , so almost everything is ready for this challenge,
 I am getting an error about the spinner, so we need to fix this in order to complete the challenge.
 
--I solved an issue in boatMap js, updateMap method variables were wrong.
--And for the searchComponent, i only missed to add variant="brand" into the spinner tag
+- I solved an issue in boatMap js, updateMap method variables were wrong.
+- And for the searchComponent, i only missed to add variant="brand" into the spinner tag
 
 ## Challenge 10 fiveStarRating
 
--The fiveStarRating is already creaded, so first we need to get it on our visual studio
--Afer that we just need to follow the steps described in the superbadge, it is pretty straightforward.
+- The fiveStarRating is already creaded, so first we need to get it on our visual studio
+- Afer that we just need to follow the steps described in the superbadge, it is pretty straightforward.
 
 ## Challenge 11 boatAddReviewForm
 
--Now it is time to create boatAddReviewForm component, as always we will initiate using the template in the superbadge
--Begin creating lightning-record-edit-form with its respective imports
--Add the required fields with the custom labels
--Add the stars component to the form, and use the event to obtain the value
--Finish with the submit method and success method
--Do no forget to create a new event on the success method
+- Now it is time to create boatAddReviewForm component, as always we will initiate using the template in the superbadge
+- Begin creating lightning-record-edit-form with its respective imports
+- Add the required fields with the custom labels
+- Add the stars component to the form, and use the event to obtain the value
+- Finish with the submit method and success method
+- Do no forget to create a new event on the success method
 
 ## Challenge 12 boatReviews
 
--We are going to create the boatReviews component to visualize all the boats reviews
--Here we are going to use NavigationMixin so we could travel between diferent salesforce pages do not forget to extend the class
--We are going to add a little spinner
--We are also making an iteration for every review, so we can see each review created
--For each review we are going to show a picture from the creator, and its data, an also the review, and the star component
+- We are going to create the boatReviews component to visualize all the boats reviews
+- Here we are going to use NavigationMixin so we could travel between diferent salesforce pages do not forget to extend the class
+- We are going to add a little spinner
+- We are also making an iteration for every review, so we can see each review created
+- For each review we are going to show a picture from the creator, and its data, an also the review, and the star component
 
 ## Challege 13 boatDetailTabs
 
--We are going to create the boat details container, were we are going to add all the details and reviews
--Start making the component available to use on lightning pages
--Then copy the given code on the trailhead and create the component
--Import all the necesary labels, and start adding them to the html
--Initialize the variables create the imports
--Get data for the wired variable, using uiRecordApi and using the boat event to recieve the selected id
--Build a tabset on the html
--Create the details lightning card, with name icon details and button
--Extend navigation mixin to the class, and link the button to the deetail page
--Add the lightning-record-view-form to see extra fields
--Relate the reviews components to the other tabs.
+- We are going to create the boat details container, were we are going to add all the details and reviews
+- Start making the component available to use on lightning pages
+- Then copy the given code on the trailhead and create the component
+- Import all the necesary labels, and start adding them to the html
+- Initialize the variables create the imports
+- Get data for the wired variable, using uiRecordApi and using the boat event to recieve the selected id
+- Build a tabset on the html
+- Create the details lightning card, with name icon details and button
+- Extend navigation mixin to the class, and link the button to the deetail page
+- Add the lightning-record-view-form to see extra fields
+- Relate the reviews components to the other tabs.
