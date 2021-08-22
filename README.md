@@ -146,3 +146,22 @@ I am getting an error about the spinner, so we need to fix this in order to comp
 - Extend navigation mixin to the class, and link the button to the deetail page
 - Add the lightning-record-view-form to see extra fields
 - Relate the reviews components to the other tabs.
+
+## Challenge 14 SimilarBoats
+- Lets create the component to obtain similar boats by filter
+- First copy the trailhead template code
+- Update the meta.xml, to give access to record page, and to creaate the property to filter by
+- Update the js to obtain the related boats from apex
+- Update the html to Iterate the related boats, and created a boat tile for each
+- Create a navigation mixin event if they click a tile
+
+## Challenge 15, 16
+- If you tested your modules previously probably this two challenges are fully completeted already
+- Only need to release the lightning pages with the requiered components
+- In the challenge 16, remember that you need to add the same component 3 times, one per filter
+
+## Challenge 18, 19
+- A few questions about LWC
+
+## Finish
+- Congratulations, we did it,, the LWC Superbadge is finished!!!!
